@@ -16,7 +16,7 @@ function About(props) {
   return (
     <aside>
       <img src={imageUrl} alt="blog logo" />
-      <p>{props.about}</p> {/* changed "About" to "about" */}
+      <p>{props.about}</p>
     </aside>
   );
 }
@@ -26,10 +26,11 @@ function ArticleList({ posts }) {
     <main>
       {posts.map((post) => (
         <Article key={post.id} {...post} />
-      );
+      ))}
     </main>
   );
 }
+
 function Article(props) {
   const { title, date, preview } = props;
   const formattedDate = date ? new Date(date).toLocaleDateString() : "January 1, 1970";
@@ -75,7 +76,7 @@ function App() {
         <Header blogName="Overreacted" />
         <About
           image="https://example.com/image.jpg"
-          About="A blog about learning React."
+          about="A blog about learning React."
         />
         <ArticleList posts={posts} />
       </div>
